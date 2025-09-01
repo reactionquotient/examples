@@ -94,6 +94,17 @@ Models oscillatory behavior in a simplified glycolytic pathway with FBP feedback
 - Sustained limit cycle with resonant ATP forcing
 - Analytical solution available for transient and steady-state behavior
 
+### 6. Push–Pull Cycle (`push_pull_cycle/`)
+
+File: `push_pull.py`  
+Figures: `push_pull_fraction_vs_ATP.png`, `push_pull_step_response.png`  
+Section: 4 (Linear control / energy-driven switching)
+
+Shows a thermodynamic push–pull (futile) phosphorylation cycle driven by ATP/ADP.
+In log-space the dynamics are linear: \( \frac{d}{dt}\ln Q = -k\ln(Q/K_{eq}) + u \).
+The steady-state phosphorylated fraction is a logistic function of \(\ln(\mathrm{ATP}/\mathrm{ADP})\),
+and step changes in drive yield exponential responses in \(\ln Q\).
+
 ## 🔧 Installation & Usage
 
 ### Requirements
