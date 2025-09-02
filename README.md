@@ -105,7 +105,7 @@ Models the A + B ⇌ C + D reaction under log-linear dynamics. Demonstrates quad
 - Closed-form Q(t) = Keq(Q0/Keq)^exp(-kt) solution
 - Quadratic solver for extent of reaction ξ(t) from Q(t)
 - Continuity enforcement for smooth concentration trajectories
-- Mass-action comparison with matching colors for clarity
+- Mass-action comparison
 
 ### 7. Push–Pull Cycle (`push_pull_cycle/`)
 
@@ -117,6 +117,20 @@ Shows a thermodynamic push–pull (futile) phosphorylation cycle driven by ATP/A
 In log-space the dynamics are linear: \( \frac{d}{dt}\ln Q = -k\ln(Q/K_{eq}) + u \).
 The steady-state phosphorylated fraction is a logistic function of \(\ln(\mathrm{ATP}/\mathrm{ADP})\),
 and step changes in drive yield exponential responses in \(\ln Q\).
+
+### 8. General Single Reaction (`single_reaction_general/`)
+**File**: `single_reaction_general.py`  
+**Figures**: `general_single_reaction_conc.png`, `general_single_reaction_Q.png`  
+**Section**: Framework extension
+
+Demonstrates the log-linear framework for arbitrary single reactions with general stoichiometry. Uses the example reaction 2A + B ⇌ C + 2D, showing how to solve for species concentrations from reaction quotient Q(t) via root-finding on the extent of reaction ξ.
+
+**Key Features**:
+- General stoichiometric coefficients: α (reactants), β (products)
+- Root-finding solution: S(ξ) = ln Q(t) with feasibility constraints
+- Robust numerical methods with boundary clamping
+- Direct comparison to mass-action kinetics
+- Demonstrates crossing dynamics as system evolves toward equilibrium
 
 ## 🔧 Installation & Usage
 
@@ -134,6 +148,7 @@ python ATP_driven_reaction/atp_drive_reaction.py
 python coupled_transport/coupled_transport.py
 python glycolitic_oscillations/glycolysis.py
 python bimolecular_exchange/ab_cd_example.py
+python single_reaction_general/single_reaction_general.py
 ```
 
 ### Parameter Exploration
