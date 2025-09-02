@@ -161,6 +161,21 @@ Models the cellular tradeoff between maintenance/autophagy and anabolic growth u
 - Two conditions: ad libitum (high nutrients, low NAD+/NADH) vs. caloric restriction (low nutrients, high NAD+/NADH)
 - Demonstrates how energy state drives cellular resource allocation between competing pathways
 
+### 11. Temperature Jump Relaxation (`t_jump_relaxation/`)
+**File**: `t_jump.py`  
+**Figure**: `t_jump.png`  
+**Section**: Experimental kinetics
+
+Demonstrates classic temperature-jump relaxation kinetics using the log-linear framework. Shows how reaction quotient Q tracks a time-varying equilibrium constant Keq(T) through exponential relaxation in log-space, providing a direct method to measure relaxation rates from experimental data.
+
+**Key Features**:
+- Single ODE: d/dt ln Q = -k[ln Q - ln Keq(T)]
+- van 't Hoff temperature dependence: ln Keq(T) = -ΔH/RT + ΔS/R
+- Exponential decay of deviation δ(t) = ln(Q/Keq) after each temperature step
+- Direct measurement of relaxation rate k from semi-log plots
+- Temperature protocol: step changes (298K → 330K → 298K) with customizable timing
+- Parameter estimation from experimental-style data fitting
+
 ## 🔧 Installation & Usage
 
 ### Requirements
@@ -180,6 +195,7 @@ python bimolecular_exchange/ab_cd_example.py
 python single_reaction_general/single_reaction_general.py
 python receptor_competition/receptor_competition.py
 python longevity_tradeoff/longevity_tradeoff.py
+python t_jump_relaxation/t_jump.py
 ```
 
 ### Parameter Exploration
