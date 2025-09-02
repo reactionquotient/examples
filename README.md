@@ -161,7 +161,21 @@ Models the cellular tradeoff between maintenance/autophagy and anabolic growth u
 - Two conditions: ad libitum (high nutrients, low NAD+/NADH) vs. caloric restriction (low nutrients, high NAD+/NADH)
 - Demonstrates how energy state drives cellular resource allocation between competing pathways
 
-### 11. Temperature Jump Relaxation (`t_jump_relaxation/`)
+### 11. Conservation–Decoupling (`conservation_decoupling/`)
+**File**: `conservation_decoupling.py`  
+**Figures**: `reaction_quotient_dynamics.png`, `concentration_dynamics.png`  
+**Section**: Framework fundamentals
+
+Demonstrates the core property of log-linear reaction quotient dynamics: the trajectory of Q(t) is independent of conserved pool size. For the simplest A ⇌ B reaction, different total concentrations (Ctot = [A] + [B]) produce different concentration time-courses while sharing the same Q(t) evolution.
+
+**Key Features**:
+- State variable: Q = [B]/[A] evolves independently of conservation constraints
+- Log-linear dynamics: d/dt ln Q = -k ln(Q/Keq) with analytical solution
+- Concentration reconstruction: [A] = Ctot/(1+Q), [B] = CtotQ/(1+Q)
+- Conservation-decoupling principle: changing Ctot alters concentrations but not Q(t)
+- Clean separation of thermodynamic relaxation from matter bookkeeping
+
+### 12. Temperature Jump Relaxation (`t_jump_relaxation/`)
 **File**: `t_jump.py`  
 **Figure**: `t_jump.png`  
 **Section**: Experimental kinetics
@@ -195,6 +209,7 @@ python bimolecular_exchange/ab_cd_example.py
 python single_reaction_general/single_reaction_general.py
 python receptor_competition/receptor_competition.py
 python longevity_tradeoff/longevity_tradeoff.py
+python conservation_decoupling/conservation_decoupling.py
 python t_jump_relaxation/t_jump.py
 ```
 
