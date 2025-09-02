@@ -94,7 +94,20 @@ Models oscillatory behavior in a simplified glycolytic pathway with FBP feedback
 - Sustained limit cycle with resonant ATP forcing
 - Analytical solution available for transient and steady-state behavior
 
-### 6. Push–Pull Cycle (`push_pull_cycle/`)
+### 6. Bimolecular Exchange Reaction (`bimolecular_exchange/`)
+**File**: `ab_cd_example.py`  
+**Figures**: `ab_cd_reaction.png`, `ab_cd_Q_relaxation.png`  
+**Section**: Extension of framework
+
+Models the A + B ⇌ C + D reaction under log-linear dynamics. Demonstrates quadratic root-finding to recover species concentrations from reaction quotient Q(t), with physically valid solutions ensuring all concentrations remain nonnegative.
+
+**Key Features**:
+- Closed-form Q(t) = Keq(Q0/Keq)^exp(-kt) solution
+- Quadratic solver for extent of reaction ξ(t) from Q(t)
+- Continuity enforcement for smooth concentration trajectories
+- Mass-action comparison with matching colors for clarity
+
+### 7. Push–Pull Cycle (`push_pull_cycle/`)
 
 File: `push_pull.py`  
 Figures: `push_pull_fraction_vs_ATP.png`, `push_pull_step_response.png`  
@@ -120,6 +133,7 @@ python feedback_inhibition/feedback_simple.py
 python ATP_driven_reaction/atp_drive_reaction.py
 python coupled_transport/coupled_transport.py
 python glycolitic_oscillations/glycolysis.py
+python bimolecular_exchange/ab_cd_example.py
 ```
 
 ### Parameter Exploration
