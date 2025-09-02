@@ -114,9 +114,9 @@ Figures: `push_pull_fraction_vs_ATP.png`, `push_pull_step_response.png`
 Section: 4 (Linear control / energy-driven switching)
 
 Shows a thermodynamic push–pull (futile) phosphorylation cycle driven by ATP/ADP.
-In log-space the dynamics are linear: \( \frac{d}{dt}\ln Q = -k\ln(Q/K_{eq}) + u \).
-The steady-state phosphorylated fraction is a logistic function of \(\ln(\mathrm{ATP}/\mathrm{ADP})\),
-and step changes in drive yield exponential responses in \(\ln Q\).
+In log-space the dynamics are linear: $\frac{d}{dt}\ln Q = -k\ln(Q/K_{eq}) + u$.
+The steady-state phosphorylated fraction is a logistic function of $\ln(\mathrm{ATP}/\mathrm{ADP})$,
+and step changes in drive yield exponential responses in $\ln Q$.
 
 ### 8. General Single Reaction (`single_reaction_general/`)
 **File**: `single_reaction_general.py`  
