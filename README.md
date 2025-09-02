@@ -146,6 +146,21 @@ Models competitive binding between agonist ligand L and antagonist C for the sam
 - Demonstrates receptor occupancy vs. ligand concentration across antagonist levels
 - Standard binding assay assumptions with ligand excess conditions
 
+### 10. Longevity Tradeoff (`longevity_tradeoff/`)
+**File**: `longevity_tradeoff.py`  
+**Figure**: `longevity_tradeoff.png`  
+**Section**: Biological applications
+
+Models the cellular tradeoff between maintenance/autophagy and anabolic growth using two coupled reaction-quotient modes driven by energy state (NAD+/NADH) and nutrient signaling (mTOR). Demonstrates how caloric restriction vs. ad libitum feeding affects the balance between longevity-promoting and growth-promoting cellular processes.
+
+**Key Features**:
+- Maintenance mode Q1: AMPK/Sirtuin-driven autophagy and cellular repair
+- Growth mode Q2: mTOR-driven anabolic processes  
+- Coupled dynamics: d/dt ln Q = -K ln(Q/Keq) + u with off-diagonal coupling
+- Control inputs: u1 ∝ ln(NAD+/NADH), u2 ∝ ln(nutrient) - ln(NAD+/NADH)
+- Two conditions: ad libitum (high nutrients, low NAD+/NADH) vs. caloric restriction (low nutrients, high NAD+/NADH)
+- Demonstrates how energy state drives cellular resource allocation between competing pathways
+
 ## 🔧 Installation & Usage
 
 ### Requirements
@@ -164,6 +179,7 @@ python glycolitic_oscillations/glycolysis.py
 python bimolecular_exchange/ab_cd_example.py
 python single_reaction_general/single_reaction_general.py
 python receptor_competition/receptor_competition.py
+python longevity_tradeoff/longevity_tradeoff.py
 ```
 
 ### Parameter Exploration
