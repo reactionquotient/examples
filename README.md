@@ -132,6 +132,20 @@ Demonstrates the log-linear framework for arbitrary single reactions with genera
 - Direct comparison to mass-action kinetics
 - Demonstrates crossing dynamics as system evolves toward equilibrium
 
+### 9. Competitive Receptor Binding (`receptor_competition/`)
+**File**: `receptor_competition.py`  
+**Figure**: `receptor_competition_dose_response.png`  
+**Section**: Classical binding equilibrium
+
+Models competitive binding between agonist ligand L and antagonist C for the same receptor R. Demonstrates classic pharmacology dose-response shifts using normalized binding equilibrium equations.
+
+**Key Features**:
+- Competitive binding: f_L = Lk/(1 + Lk + Ck) with normalized concentrations
+- Parallel rightward shifts in dose-response curves with increasing antagonist
+- Dose ratio relationship: EC50(C)/EC50(0) = 1 + Ck
+- Demonstrates receptor occupancy vs. ligand concentration across antagonist levels
+- Standard binding assay assumptions with ligand excess conditions
+
 ## 🔧 Installation & Usage
 
 ### Requirements
@@ -149,6 +163,7 @@ python coupled_transport/coupled_transport.py
 python glycolitic_oscillations/glycolysis.py
 python bimolecular_exchange/ab_cd_example.py
 python single_reaction_general/single_reaction_general.py
+python receptor_competition/receptor_competition.py
 ```
 
 ### Parameter Exploration
