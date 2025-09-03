@@ -83,34 +83,31 @@ def demo_rq_dynamics():
              transform=ax1.transAxes, fontsize=9, 
              bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.8))
     
-    # RIGHT: RQ dynamics with different control inputs
+    # RIGHT: RQ dynamics relaxing to equilibrium (u = 0)
     S_fixed = 10.0  # fixed substrate (μM)
     Q_0 = 3.0 * K   # start 3x above equilibrium
     
-    # Three cases: no drive, positive drive, negative drive
-    u_values = [0.0, 2.0, -2.0]
-    colors = ['green', 'red', 'blue']
-    labels = ['u = 0 (thermal equilibrium)', 'u = +2 (energy input)', 'u = -2 (energy dissipation)']
+    # Single case: no drive (u = 0)
+    u = 0.0
     
     # Equilibrium reference (MM prediction when u=0)
     v_eq_mm = mm_rate(S_fixed, V_max, K_M)
     
-    for u, color, label in zip(u_values, colors, labels):
-        Q_t = rq_analytical(t, Q_0, K, k, u=u)
-        ES_t = es_concentration(E_tot, S_fixed, Q_t)
-        v_t = k_cat * ES_t
-        ax2.plot(t, v_t, color=color, linewidth=2, label=label)
+    Q_t = rq_analytical(t, Q_0, K, k, u=u)
+    ES_t = es_concentration(E_tot, S_fixed, Q_t)
+    v_t = k_cat * ES_t
+    ax2.plot(t, v_t, color='green', linewidth=2, label='u = 0 (thermal equilibrium)')
     
     ax2.axhline(y=v_eq_mm, color='black', linestyle='--', linewidth=1, alpha=0.7,
                 label='MM equilibrium (u=0)')
     ax2.set_xlabel('Time (s)')
     ax2.set_ylabel('Rate v (μM/s)')
-    ax2.set_title(f'RQ Dynamics with Control Input u\n[S] = {S_fixed} μM')
+    ax2.set_title(f'RQ Dynamics (u = 0)\n[S] = {S_fixed} μM')
     ax2.legend(fontsize=9)
     ax2.grid(True, alpha=0.3)
     
-    # Add annotation about control input
-    ax2.text(0.02, 0.98, 'Control input u shifts steady-state\naway from thermal equilibrium', 
+    # Add annotation about equilibrium relaxation
+    ax2.text(0.02, 0.98, 'RQ relaxes to thermal equilibrium\nmatching MM kinetics', 
              transform=ax2.transAxes, fontsize=9, verticalalignment='top',
              bbox=dict(boxstyle='round', facecolor='lightblue', alpha=0.8))
     
@@ -135,7 +132,5 @@ if __name__ == "__main__":
     print("\nSaved: mm_rq_comparison.png")
     print("\nKey insights demonstrated:")
     print("• Left panel: MM and RQ frameworks are identical when Q₁ ≈ K (fast binding)")
-    print("• Right panel: Control input u drives the system away from thermal equilibrium") 
-    print("• u = 0: Relaxes to MM equilibrium (green curve)")
-    print("• u > 0: Energy input pushes reaction quotient above equilibrium (red)")
-    print("• u < 0: Energy dissipation pulls reaction quotient below equilibrium (blue)")
+    print("• Right panel: RQ dynamics relaxes to thermal equilibrium (u = 0)") 
+    print("• System converges to MM equilibrium kinetics over the relaxation timescale τ = 1/k")
