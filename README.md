@@ -190,6 +190,22 @@ Demonstrates classic temperature-jump relaxation kinetics using the log-linear f
 - Temperature protocol: step changes (298K → 330K → 298K) with customizable timing
 - Parameter estimation from experimental-style data fitting
 
+### 13. Michaelis-Menten Kinetics (`michaelis_menten/`)
+**File**: `mm_log_linear_demo.py`  
+**Figure**: `mm_rq_comparison.png`  
+**Section**: Enzyme kinetics connection
+
+Demonstrates how classic Michaelis-Menten enzyme kinetics emerges naturally from log-linear reaction quotient dynamics in the fast-binding equilibrium limit. Shows the connection between thermodynamic reaction quotient evolution and enzymatic rate laws.
+
+**Key Features**:
+- Enzyme system: E + S ⇌ ES → E + P with binding quotient Q₁ = [ES]/([E][S])
+- Fast binding assumption: Q₁ rapidly equilibrates to K (u₁ = 0)
+- MM derivation: v = k_cat × [ES] with [ES] = E_tot × S/(K_D + S)
+- Control input effects: u ≠ 0 drives system away from thermal equilibrium
+- Analytical solution: Q(t) = K × exp(x₀×exp(-kt) + (u/k)(1-exp(-kt)))
+- Steady-state equivalence: RQ framework reproduces MM rate law exactly
+- Dynamic demonstration: Shows exponential relaxation to MM equilibrium with timescale τ = 1/k
+
 ## 🔧 Installation & Usage
 
 ### Requirements
@@ -211,6 +227,7 @@ python receptor_competition/receptor_competition.py
 python longevity_tradeoff/longevity_tradeoff.py
 python conservation_decoupling/conservation_decoupling.py
 python t_jump_relaxation/t_jump.py
+python michaelis_menten/mm_log_linear_demo.py
 ```
 
 ### Parameter Exploration
